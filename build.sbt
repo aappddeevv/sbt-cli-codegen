@@ -1,5 +1,4 @@
 Global / onChangedBuildSource := ReloadOnSourceChanges
-ThisBuild / version := "0.1.0"
 ThisBuild / organization := "ttg"
 ThisBuild / description := "Use CLIs to create scala sources slightly more easily writing a task/plugin yourself."
 ThisBuild / licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html"))
@@ -20,4 +19,5 @@ lazy val root = (project in file("."))
     publishMavenStyle := false,
   )
   .settings(bintraySettings)
-  .enablePlugins(GitVersioning)
+  .enablePlugins(SbtPlugin)
+

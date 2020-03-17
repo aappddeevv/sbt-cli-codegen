@@ -22,7 +22,6 @@ object CLICodegenPlugin extends AutoPlugin {
     val codegenInputSources = settingKey[Seq[Glob]]("List of input sources globs.")
     val codegenCommand = settingKey[Seq[String] => (Seq[String], Seq[String])]("Codegen command generator given a sequence of input files, a pacakge name and an output file.")
     val codegenOutputFilesListFile = settingKey[Option[File]]("File that once the command runs, contains the list of output files one per line.")
-   //val codgenOutputFilesDirectory = settingKey[Option[File]]("Directory that once the command runs, contains all generated files. All of the files in the directory will become output dependencies for the task.")
     val cliOutdir = settingKey[String]("Output directory under project/scala-*.**/src_managed/main. Default is cli_codegen")
   }
   import autoImport._
@@ -35,7 +34,6 @@ object CLICodegenPlugin extends AutoPlugin {
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
     codegenOutputFilesListFile := None,
     codegenRun / fileInputs ++= codegenInputSources.value,
-    //codgenOutputFilesDirectory := None,
     cliOutdir := "cli_codgen",
   ) ++ configSettings(Compile)    
 

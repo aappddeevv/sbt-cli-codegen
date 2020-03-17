@@ -1,4 +1,13 @@
-# Generate scala source artifacts
+# sbt-cli-codgen
+
+This sbt plugin generates scala source artifacts. Sbt by default does not
+cache source generated artifacts. The manual recommends optimizing code
+generation. This plugin implements that pattern so you can 
+more easily generate artifacts with sbt caching.
+
+[ ![Download](https://api.bintray.com/packages/aappddeevv/sbt-plugins/sbt-cli-codegen/images/download.svg?version=0.1.1) ](https://bintray.com/aappddeevv/sbt-plugins/sbt-cli-codegen/0.1.1/link)
+
+## Usage
 
 Generate scala source artifacts more easily than writing your
 own tasks. While it is easy to generate your own scala sources
@@ -49,6 +58,6 @@ process. Please check the source as the plugin is only 20-30 lines.
 You can also dynamically generate an output file that has the list of output files that
 were generated into the src_managed directory and the plugin will ensures that they exist.
 
-# License
+## License
 
 MIT license.
