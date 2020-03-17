@@ -18,11 +18,11 @@ object CLICodegenPlugin extends AutoPlugin {
   override def requires = JvmPlugin // needed since JvmPlugin resets sourceGenerator :-(
  
  object autoImport {
-    val codegenRun = taskKey[Seq[File]]("Run the CLI command return files to be tracked.")
+    val codegenRun = taskKey[Seq[File]]("Run CLI command.")
     val codegenInputSources = settingKey[Seq[Glob]]("List of input sources globs.")
-    val codegenCommand = settingKey[Seq[String] => (Seq[String], Seq[String])]("Codegen command generator given a sequence of input files, a pacakge name and an output file.")
+    val codegenCommand = settingKey[Seq[String] => (Seq[String], Seq[String])]("Codegen command generator given a sequence of input files, return a command to run and the command's output file.")
     val codegenOutputFilesListFile = settingKey[Option[File]]("File that once the command runs, contains the list of output files one per line.")
-    val cliOutdir = settingKey[File]("Output directory under project/scala-*.**/src_managed/main. Default is cli_codegen")
+    val cliOutdir = settingKey[File]("Output directory. Default is project's 'sourceManaged'/main/cli_codegen.")
   }
   import autoImport._
 
@@ -34,7 +34,7 @@ object CLICodegenPlugin extends AutoPlugin {
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
     codegenOutputFilesListFile := None,
     codegenRun / fileInputs ++= codegenInputSources.value,
-    cliOutdir := sourceManaged.value / "cli_codegen",
+    cliOutdir := sourceManaged.value / "main" / "cli_codegen",
   ) ++ configSettings(Compile)    
 
   def configSettings(c: Configuration) = inConfig(c)(Seq(
