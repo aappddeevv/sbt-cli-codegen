@@ -1,11 +1,11 @@
+![Bintray](https://img.shields.io/bintray/v/aappddeevv/sbt-plugins/sbt-cli-codegen)
+
 # sbt-cli-codgen
 
 This sbt plugin generates scala source artifacts. Sbt by default does not
 cache source generated artifacts. The manual recommends optimizing code
 generation. This plugin implements that pattern so you can 
 more easily generate artifacts with sbt caching.
-
-[ ![Download](https://api.bintray.com/packages/aappddeevv/sbt-plugins/sbt-cli-codegen/images/download.svg?version=0.1.1) ](https://bintray.com/aappddeevv/sbt-plugins/sbt-cli-codegen/0.1.1/link)
 
 ## Usage
 
@@ -59,5 +59,7 @@ You can also dynamically generate an output file that has the list of output fil
 were generated into the src_managed directory and the plugin will ensures that they exist.
 
 ## License
+
+[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg?maxAge=2592000)](https://raw.githubusercontent.com/aappddeevv/sbt-cli-codegen/master/LICENSE)
 
 MIT license.
